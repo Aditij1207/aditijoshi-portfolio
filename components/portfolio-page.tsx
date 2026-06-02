@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { BadgeIcon, ExternalIcon, GithubIcon, LinkedinIcon, MailIcon, PhoneIcon, PinIcon } from "@/components/icons";
 import { certificates, education, experiences, navItems, profile, projects, research, skillGroups } from "@/lib/portfolio";
@@ -23,11 +24,11 @@ function SectionKicker({ label, icon }: SectionKickerProps) {
   );
 }
 
-function Chip({ children }: { children: React.ReactNode }) {
+function Chip({ children }: { children: ReactNode }) {
   return <span className="soft-chip rounded-full px-3 py-1 text-sm font-medium shadow-sm shadow-purple-900/0">{children}</span>;
 }
 
-function SectionShell({ id, kicker, icon, title, children }: { id: string; kicker: string; icon?: string; title: string; children: React.ReactNode }) {
+function SectionShell({ id, kicker, icon, title, children }: { id: string; kicker: string; icon?: string; title: string; children: ReactNode }) {
   return (
     <section id={id} className="section-divider mx-auto max-w-[1500px] px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
       <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.55, ease: "easeOut" }}>
@@ -54,6 +55,8 @@ function Navbar() {
               {item}
             </a>
           ))}
+          <a href="/ppt" className="shrink-0 transition hover:text-violet-700">PPT</a>
+          <a href="/resume" className="shrink-0 transition hover:text-violet-700">Resume</a>
         </div>
       </nav>
     </header>
