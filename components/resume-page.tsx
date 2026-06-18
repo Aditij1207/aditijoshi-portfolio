@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
-import { certificates, education, experiences, profile, projects, research, skillGroups } from "@/lib/portfolio";
+import { certificates, education, experiences, patent, profile, projects, research, skillGroups } from "@/lib/portfolio";
 
-const coursework = ["Data Structures", "OOP", "Database Management", "Cryptography", "Computer Networks", "Computer Architecture"];
+const coursework = ["Data Structures & Algorithms", "OOP", "Database Management", "Cryptography", "Computer Networks", "AI Retrieval Systems"];
 const leadership = [
   "Selected for technical internship experiences spanning AI product search, data observability, and backend prototyping.",
   "Collaborates on privacy-preserving research focused on contextual identity disclosure and multi-agent systems.",
@@ -87,9 +87,9 @@ export default function ResumePage() {
           </div>
           <BulletList
             items={[
-              "Designed the Contextual Identity Agent to manage context-calibrated identity profiles under user-defined disclosure policies.",
-              "Combined symbolic-neural classification, pairwise pseudonymous identifiers, BBS+ credentials, and zero-knowledge proofs.",
-              `Evaluated simulation results across 7,500 traces, including ${research.stats.map((stat) => `${stat.value} ${stat.label.toLowerCase()}`).join(", ")}.`,
+              "Developed a privacy-preserving identity framework using contextual agents, selective disclosure credentials, and zero-knowledge proofs.",
+              "Evaluated the system on 7,500 simulated interactions.",
+              "Achieved 68% disclosure minimization, 61% lower re-identification risk, and 91% classification accuracy.",
             ]}
           />
         </ResumeSection>
@@ -109,6 +109,14 @@ export default function ResumePage() {
           ))}
         </ResumeSection>
 
+        <ResumeSection title="Patent">
+          <div className="resume-entry-heading">
+            <strong>{patent.title}</strong>
+            <strong>{patent.status}</strong>
+          </div>
+          <BulletList items={[patent.description]} />
+        </ResumeSection>
+
         <ResumeSection title="Technical Skills">
           <p className="resume-skills">
             {skillGroups.map((group) => (
@@ -124,7 +132,7 @@ export default function ResumePage() {
             <strong>Certifications</strong>
             <strong>Recent</strong>
           </div>
-          <p className="resume-skills">{certificates.slice(0, 5).join("; ")}</p>
+          <p className="resume-skills">{certificates.join("; ")}</p>
           <div className="resume-entry-heading leadership-heading">
             <strong>Leadership</strong>
             <strong>2025 – Present</strong>
