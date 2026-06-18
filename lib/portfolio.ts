@@ -1,4 +1,4 @@
-export const navItems = ["About", "Experience", "Research", "Projects", "Patent", "Certificates", "Contact"] as const;
+export const navItems = ["About", "Achievements", "Experience", "Leadership", "Research", "Projects", "Patent", "Certificates", "Contact"] as const;
 
 export const profile = {
   name: "Aditi Shailesh Joshi",
@@ -11,13 +11,18 @@ export const profile = {
   location: "Bengaluru, India",
   github: "https://github.com/Aditij1207",
   linkedin: "https://www.linkedin.com/in/aditi-joshi-0732162b4/",
+  portfolio: "https://aditijoshi-portfolio.vercel.app",
 };
 
 export const education = {
   school: "Manipal Institute of Technology",
   date: "2023 – 2027",
   degree: "B.Tech Computer Science Engineering",
-  stats: [{ label: "CGPA", value: "8.51", suffix: "/10" }],
+  stats: [
+    { label: "CGPA", value: "8.51", suffix: "/10" },
+    { label: "12th Percentage", value: "95.4", suffix: "%" },
+    { label: "10th Percentage", value: "97.3", suffix: "%" },
+  ],
 };
 
 export const skillGroups = [
@@ -27,6 +32,15 @@ export const skillGroups = [
   { title: "AI & ML", skills: ["LangChain", "Langflow", "Sentence Transformers", "Gemini AI", "Retrieval Systems", "Vector Search", "BM25"] },
   { title: "Tools", skills: ["Git", "Maven", "Apache Superset", "Qdrant"] },
   { title: "Other", skills: ["Data Structures & Algorithms", "OOP", "Cryptography", "Computer Networks"] },
+];
+
+export const featuredAchievements = [
+  "Data Science Intern at Ather Energy",
+  "AI Intern at Tasklance Analytics",
+  "AI Intern at Sacha Engineering",
+  "Research submitted to Prism '26",
+  "Patent Filed: Real-Time Emergency and Traffic Control System",
+  "CGPA: 8.51/10",
 ];
 
 export const experiences = [
@@ -88,15 +102,18 @@ export const projects = [
   {
     title: "FriendZone",
     stack: "Next.js, TypeScript, Supabase, Tailwind CSS",
-    description: "Social networking platform focused on profile discovery, community interaction, connections, and user engagement.",
+    description:
+      "Developing a social networking platform that enables users to discover like-minded people, join communities, create events, build connections, and interact through real-time messaging using Next.js, TypeScript, and Supabase.",
     status: "Ongoing",
     featured: true,
+    href: "https://github.com/Aditij1207/friendzone",
+    demo: "https://friendzone-beta.vercel.app",
   },
   {
     title: "Retrieval Benchmarking System",
     stack: "Python, Qdrant, Sentence Transformers, BM25",
     description:
-      "Built a retrieval benchmarking framework comparing traditional keyword search with semantic vector search. Generated embeddings, implemented retrieval pipelines, and evaluated search quality across benchmark datasets.",
+      "Developed a retrieval benchmarking framework comparing BM25 keyword search and semantic vector search using Sentence Transformers and Qdrant Cloud. Built end-to-end retrieval pipelines, generated embeddings, benchmarked search quality, and evaluated retrieval effectiveness across multiple datasets.",
     href: "https://github.com/Aditij1207/retrieval-benchmark",
   },
   {
@@ -122,6 +139,33 @@ export const projects = [
   },
 ];
 
+export const leadershipActivities = [
+  {
+    title: "ACM-W",
+    role: "Core Committee Member",
+    bullets: [
+      "Conducted technical workshops and peer mentorship sessions in Data Structures and C Programming.",
+      "Collaborated on hackathons and coding events promoting women in computing.",
+    ],
+  },
+  {
+    title: "Burning Ice",
+    role: "Management Board Member",
+    bullets: [
+      "Led execution of large-scale cultural events with 200+ participants.",
+      "Coordinated logistics, marketing, and cross-functional teams.",
+    ],
+  },
+  {
+    title: "Community & Social Impact Initiatives",
+    role: "Volunteer",
+    bullets: [
+      "Volunteered in student-led outreach and educational initiatives.",
+      "Participated in programs promoting digital literacy and inclusive access to technology.",
+    ],
+  },
+];
+
 export const patent = {
   title: "Real-Time Emergency and Traffic Control System",
   status: "Patent Filed",
@@ -129,7 +173,7 @@ export const patent = {
     "Designed a smart traffic management solution integrating emergency vehicle prioritization, live traffic monitoring, and dynamic signal control.",
 };
 
-export const certificates = [
+const certificateEntries = [
   "AWS Cloud Practitioner Essentials",
   "Deloitte Data Analytics Virtual Experience",
   "Google AI Fundamentals",
@@ -138,3 +182,5 @@ export const certificates = [
   "Digital Marketing: Platforms, Data and Technologies",
   "Marketing in a Digital World",
 ];
+
+export const certificates = Array.from(new Set(certificateEntries));
