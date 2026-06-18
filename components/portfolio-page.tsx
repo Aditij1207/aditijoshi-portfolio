@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { BadgeIcon, ExternalIcon, GithubIcon, LinkedinIcon, MailIcon, PhoneIcon, PinIcon } from "@/components/icons";
-import { certificates, education, experiences, navItems, profile, projects, research, skillGroups } from "@/lib/portfolio";
+import { certificates, education, experiences, navItems, patent, profile, projects, research, skillGroups } from "@/lib/portfolio";
 
 type SectionKickerProps = {
   label: string;
@@ -69,9 +69,9 @@ function Hero() {
       <motion.div variants={fadeUp} initial="hidden" animate="visible" transition={{ duration: 0.75, ease: "easeOut" }} className="max-w-[760px]">
         <p className="mb-12 text-base font-bold uppercase tracking-[0.24em] text-violet-700 sm:text-lg">{profile.subtitle}</p>
         <h1 className="serif gradient-name text-7xl font-bold leading-[0.95] tracking-[-0.06em] sm:text-8xl lg:text-[112px]">
-          Aditi Shailesh
+          {profile.name.split(" ").slice(0, 2).join(" ")}
           <br />
-          <span>Joshi.</span>
+          <span>{profile.name.split(" ").slice(2).join(" ")}.</span>
         </h1>
         <p className="mt-12 max-w-[760px] text-2xl font-medium leading-[1.55] text-[#53536a] sm:text-[28px]">{profile.description}</p>
         <div className="mt-14 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
@@ -95,7 +95,7 @@ function Hero() {
 
 function About() {
   return (
-    <SectionShell id="about" kicker="About" icon="⌘" title="Education">
+    <SectionShell id="about" kicker="About" icon="⌘" title="About & Education">
       <div className="grid gap-14 lg:grid-cols-[1fr_0.52fr] lg:items-start">
         <div className="glass-card rounded-[28px] p-7 sm:p-9 lg:p-10">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -105,7 +105,7 @@ function About() {
             </div>
             <p className="text-lg font-medium text-[#696a89]">{education.date}</p>
           </div>
-          <div className="mt-10 grid gap-8 sm:grid-cols-3">
+          <div className="mt-10 grid gap-8 sm:grid-cols-1">
             {education.stats.map((stat) => (
               <div key={stat.label}>
                 <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#696a89]">{stat.label}</p>
@@ -171,11 +171,11 @@ function Experience() {
 
 function Research() {
   return (
-    <SectionShell id="research" kicker="Ongoing Research" icon="□" title="Research">
+    <SectionShell id="research" kicker="Research" icon="□" title="Research">
       <article className="glass-card warm-card rounded-[28px] p-7 sm:p-10 lg:p-12">
         <p className="text-sm font-bold uppercase tracking-[0.26em] text-[#696a89]">✣ {research.status}</p>
         <h3 className="serif mt-6 max-w-[1200px] text-4xl font-bold leading-tight tracking-[-0.04em] text-[#151426] lg:text-5xl">{research.title}</h3>
-        <p className="mt-5 text-lg font-semibold text-[#696a89]">Authors: {research.authors} · {research.affiliation}</p>
+        <p className="mt-5 text-lg font-semibold text-[#696a89]">{research.affiliation}</p>
         <p className="mt-10 text-xl font-medium leading-relaxed text-[#696a89] lg:text-2xl">{research.description}</p>
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           {research.stats.map((stat) => (
@@ -204,7 +204,7 @@ function Projects() {
               <h3 className="text-2xl font-bold text-[#151426]">{featured.title} <ExternalIcon className="inline h-5 w-5 text-[#696a89]" /></h3>
               <p className="mt-3 text-base font-bold text-[#696a89]">{featured.stack}</p>
             </div>
-            <span className="gradient-button inline-flex w-fit rounded-full px-4 py-2 text-sm font-bold text-white shadow-xl shadow-rose-900/15">✣ Currently Building</span>
+            <span className="gradient-button inline-flex w-fit rounded-full px-4 py-2 text-sm font-bold text-white shadow-xl shadow-rose-900/15">✣ Featured Project</span>
           </div>
           <p className="mt-8 text-xl font-medium text-[#696a89]">{featured.description}</p>
           {featured.status && <span className="mt-8 inline-flex rounded-full bg-[#f2defc] px-4 py-2 text-sm font-semibold">✣ {featured.status}</span>}
@@ -222,6 +222,18 @@ function Projects() {
           </article>
         ))}
       </div>
+    </SectionShell>
+  );
+}
+
+function Patent() {
+  return (
+    <SectionShell id="patent" kicker="Patent" icon="◇" title="Filed innovation">
+      <article className="glass-card warm-card rounded-[28px] p-7 sm:p-10 lg:p-12">
+        <p className="text-sm font-bold uppercase tracking-[0.26em] text-[#696a89]">{patent.status}</p>
+        <h3 className="serif mt-6 text-4xl font-bold leading-tight tracking-[-0.04em] text-[#151426] lg:text-5xl">{patent.title}</h3>
+        <p className="mt-8 max-w-[1000px] text-xl font-medium leading-relaxed text-[#696a89] lg:text-2xl">{patent.description}</p>
+      </article>
     </SectionShell>
   );
 }
@@ -282,6 +294,7 @@ export default function PortfolioPage() {
         <Experience />
         <Research />
         <Projects />
+        <Patent />
         <Certificates />
         <Contact />
       </main>

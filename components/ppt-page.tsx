@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { certificates, education, experiences, profile, projects, research, skillGroups } from "@/lib/portfolio";
+import { certificates, education, experiences, patent, profile, projects, research, skillGroups } from "@/lib/portfolio";
 
 const deckSlides = [
   {
@@ -9,7 +9,7 @@ const deckSlides = [
     title: profile.name,
     body: profile.description,
     accent: "Portfolio Snapshot",
-    points: [profile.location, profile.email, "Backend · Data · AI Research"],
+    points: [profile.location, profile.email, "AI · Data Science · Backend Systems"],
   },
   {
     eyebrow: "Education",
@@ -45,6 +45,13 @@ const deckSlides = [
     body: "Comfortable moving from problem framing to implementation across programming, APIs, databases, and applied AI tooling.",
     accent: "Core strengths",
     points: skillGroups.slice(0, 6).map((group) => `${group.title}: ${group.skills.join(", ")}`),
+  },
+  {
+    eyebrow: "Patent",
+    title: patent.title,
+    body: patent.description,
+    accent: patent.status,
+    points: ["Emergency vehicle prioritization", "Live traffic monitoring", "Dynamic signal control"],
   },
   {
     eyebrow: "Certifications",

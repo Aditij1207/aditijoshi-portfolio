@@ -1,37 +1,32 @@
-export const navItems = ["About", "Experience", "Research", "Projects", "Certificates", "Contact"] as const;
+export const navItems = ["About", "Experience", "Research", "Projects", "Patent", "Certificates", "Contact"] as const;
 
 export const profile = {
   name: "Aditi Shailesh Joshi",
   shortName: "Aditi Joshi",
-  subtitle: "Computer Science · MIT Manipal",
+  subtitle: "Computer Science Engineering Student | AI & Data Science Enthusiast | Building AI-Powered Systems",
   description:
-    "I build backends, ship data systems, and research how identity should behave online. Currently studying CS at Manipal and writing software at the intersection of AI, data, and the web.",
+    "B.Tech Computer Science Engineering student at Manipal Institute of Technology with experience in AI, Data Science, Backend Development, Retrieval Systems, and LLM-powered applications. Passionate about building scalable software systems, intelligent search solutions, and real-world AI products.",
   email: "aditisj1207@gmail.com",
   phone: "+91 80565 61284",
   location: "Bengaluru, India",
-  github: "https://github.com/aditijoshi",
-  linkedin: "https://www.linkedin.com/in/aditi-shailesh-joshi/",
+  github: "https://github.com/Aditij1207",
+  linkedin: "https://www.linkedin.com/in/aditi-joshi-0732162b4/",
 };
 
 export const education = {
   school: "Manipal Institute of Technology",
-  date: "Aug 2023 — May 2027",
-  degree: "B.Tech, Computer Science Engineering",
-  stats: [
-    { label: "CGPA", value: "8.51", suffix: "/ 10" },
-    { label: "12th", value: "95.4%" },
-    { label: "10th", value: "97.3%" },
-  ],
+  date: "2023 – 2027",
+  degree: "B.Tech Computer Science Engineering",
+  stats: [{ label: "CGPA", value: "8.51", suffix: "/10" }],
 };
 
 export const skillGroups = [
-  { title: "Languages", skills: ["C", "Java", "Python", "HTML", "CSS", "JavaScript"] },
-  { title: "Core Concepts", skills: ["DSA", "OOP", "Problem Solving", "Debugging"] },
-  { title: "Databases", skills: ["SQL", "Oracle", "MySQL"] },
+  { title: "Programming", skills: ["C", "Java", "Python", "HTML", "CSS", "JavaScript"] },
+  { title: "Databases", skills: ["SQL", "Oracle", "MySQL", "ClickHouse"] },
   { title: "Backend & APIs", skills: ["FastAPI", "REST APIs", "JDBC"] },
-  { title: "Tools & Platforms", skills: ["Git", "Maven", "Apache Superset", "LangChain", "Langflow"] },
-  { title: "Coursework", skills: ["Cryptography", "Computer Networks"] },
-  { title: "Embedded", skills: ["LPC1768 (ARM Cortex-M3)"] },
+  { title: "AI & ML", skills: ["LangChain", "Langflow", "Sentence Transformers", "Gemini AI", "Retrieval Systems", "Vector Search", "BM25"] },
+  { title: "Tools", skills: ["Git", "Maven", "Apache Superset", "Qdrant"] },
+  { title: "Other", skills: ["Data Structures & Algorithms", "OOP", "Cryptography", "Computer Networks"] },
 ];
 
 export const experiences = [
@@ -39,90 +34,107 @@ export const experiences = [
     role: "AI Intern",
     company: "Tasklance Analytics",
     location: "Remote",
-    date: "Jun 2025 – Aug 2025",
-    stack: ["Python", "FastAPI", "SQL", "REST APIs"],
+    date: "June 2025 – Aug 2025",
+    stack: ["Python", "FastAPI", "LangChain", "Langflow", "SQL"],
     bullets: [
       "Developed backend services using Python and FastAPI for AI-driven product search.",
-      "Integrated LLMs with LangChain and Langflow, connecting SQL databases and external APIs for scalable retrieval.",
-      "Built modular backend pipelines and automated workflows in Python and SQL.",
+      "Integrated LLMs using LangChain and Langflow with SQL databases and external APIs.",
+      "Built modular backend pipelines and automated workflows using Python and SQL.",
     ],
   },
   {
     role: "Data Science Intern",
-    company: "Ather",
+    company: "Ather Energy",
     location: "Bengaluru",
-    date: "Jun 2025 – Jul 2025",
-    stack: ["PySpark", "SQL", "ClickHouse", "Apache Superset", "Go"],
+    date: "June 2025 – July 2025",
+    stack: ["SQL", "PySpark", "ClickHouse", "Apache Superset", "Go"],
     bullets: [
-      "Built a production-grade monitoring system to improve availability and reliability.",
-      "Created real-time dashboards and alerting pipelines for system observability.",
-      "Optimized data processing and queries using SQL and PySpark.",
-      "Prototyped backend in Go for computer-vision-based detection systems.",
+      "Developed a production-grade monitoring system improving availability and reliability.",
+      "Built real-time dashboards and alerting pipelines.",
+      "Optimized SQL and PySpark workloads.",
+      "Contributed to backend prototyping in Go for computer-vision-based detection systems.",
+    ],
+  },
+  {
+    role: "AI Intern",
+    company: "Sacha Engineering",
+    location: "Bengaluru",
+    date: "June 2026 – July 2026",
+    stack: ["Multimodal AI", "Transformer Embeddings", "Qdrant Cloud", "BM25"],
+    bullets: [
+      "Built AI video-generation workflows using multimodal models and avatar synthesis platforms.",
+      "Designed vector search architecture using transformer embeddings and Qdrant Cloud.",
+      "Benchmarked semantic retrieval against BM25-based search systems.",
     ],
   },
 ];
 
 export const research = {
   title: "Autonomous Identity Disclosure via Contextual Agents in Multi-Platform Systems",
-  authors: "Aditi Joshi, Anubhav Gupta",
+  authors: "Aditi Shailesh Joshi",
   affiliation: "Manipal Institute of Technology",
-  status: "In progress · Submitted to Prism '26",
+  status: "Submitted to Prism '26",
   description:
-    "Introduces the Contextual Identity Agent (CIA) — an autonomous agent that constructs and maintains context-calibrated identity profiles and executes disclosure decisions under user-defined policies and contextual integrity norms. Combines a hybrid symbolic-neural context classifier, pairwise pseudonymous identifiers, BBS+ selective disclosure credentials, and zero-knowledge attribute proofs. Evaluated through simulation over 7,500 interaction traces across five synthetic platform types.",
+    "Developed a privacy-preserving identity framework using contextual agents, selective disclosure credentials, and zero-knowledge proofs. Evaluated the system on 7,500 simulated interactions.",
   stats: [
-    { label: "Disclosure minimisation", value: "68%", detail: "vs unmediated" },
-    { label: "Re-identification risk", value: "−61%", detail: "vs OAuth baseline" },
-    { label: "Classification accuracy", value: "91%", detail: "benign scenarios" },
+    { label: "Disclosure minimization", value: "68%", detail: "reduction" },
+    { label: "Re-identification risk", value: "61%", detail: "lower" },
+    { label: "Classification accuracy", value: "91%", detail: "achieved" },
   ],
-  tags: ["Contextual Integrity", "Privacy", "Multi-Agent Systems", "SSI", "ZK Proofs"],
+  tags: ["Contextual Agents", "Selective Disclosure", "Zero-Knowledge Proofs", "Privacy", "Identity Systems"],
 };
 
 export const projects = [
   {
-    title: "Social Media App",
-    stack: "React, Node.js, PostgreSQL, WebSockets, AWS",
-    description: "Currently building a social media app.",
-    status: "In Progress",
+    title: "FriendZone",
+    stack: "Next.js, TypeScript, Supabase, Tailwind CSS",
+    description: "Social networking platform focused on profile discovery, community interaction, connections, and user engagement.",
+    status: "Ongoing",
     featured: true,
   },
   {
-    title: "Shopping Cart Management System",
-    stack: "Java, JavaFX, Maven, JDBC, Oracle, PL/SQL",
+    title: "Retrieval Benchmarking System",
+    stack: "Python, Qdrant, Sentence Transformers, BM25",
     description:
-      "Full-stack system supporting user/admin roles, cart operations, and order processing with JDBC + PL/SQL.",
-    href: "https://github.com/aditijoshi",
+      "Built a retrieval benchmarking framework comparing traditional keyword search with semantic vector search. Generated embeddings, implemented retrieval pipelines, and evaluated search quality across benchmark datasets.",
+    href: "https://github.com/Aditij1207/retrieval-benchmark",
   },
   {
-    title: "Cattle Management System",
-    stack: "Java, JavaFX, OOP, File Handling",
-    description: "Desktop app for cattle registration and insurance tracking with structured file handling.",
-    href: "https://github.com/aditijoshi",
+    title: "AI Product Search System",
+    stack: "Python, FastAPI, LangChain, Langflow, SQL",
+    description: "Developed AI-powered search infrastructure integrating LLMs, vector retrieval, and backend APIs.",
+  },
+  {
+    title: "Shopping Cart Management System",
+    stack: "Java, JavaFX, JDBC, Oracle SQL, PL/SQL",
+    description: "Full-stack shopping cart platform supporting user/admin roles, order management, and database-driven workflows.",
+    href: "https://github.com/Aditij1207/Shopping-cart-management",
   },
   {
     title: "Grape Disease Detection",
-    stack: "CNN, Image Processing, FastAPI",
-    description:
-      "Backend service for disease detection in grape plants, exposed via FastAPI for real-time predictions.",
+    stack: "CNN, FastAPI, Python",
+    description: "Deep-learning-powered grape disease classification and prediction system with API support.",
   },
   {
-    title: "Real-Time Emergency & Traffic Control (Patent)",
-    stack: "IoT, Real-Time Systems, Data Analytics",
-    description:
-      "Designed a system to optimize traffic flow and prioritize emergency vehicles with dynamic signal control.",
-  },
-  {
-    title: "Accessibility Web App for the Hearing Impaired",
-    stack: "HTML, CSS, JS, Speech-to-Text, Text-to-Speech",
-    description: "Responsive web app integrating STT/TTS APIs for multilingual communication.",
+    title: "Website for People with Hearing Impairments",
+    stack: "HTML, CSS, JavaScript, Speech-to-Text API, Text-to-Speech API",
+    description: "Accessibility-focused communication platform with multilingual speech capabilities.",
   },
 ];
+
+export const patent = {
+  title: "Real-Time Emergency and Traffic Control System",
+  status: "Patent Filed",
+  description:
+    "Designed a smart traffic management solution integrating emergency vehicle prioritization, live traffic monitoring, and dynamic signal control.",
+};
 
 export const certificates = [
   "AWS Cloud Practitioner Essentials",
   "Deloitte Data Analytics Virtual Experience",
-  "Digital Marketing: Customer Engagement Strategy",
-  "Digital Marketing: Platforms, Data, and Technologies",
-  "Generative AI for Everyone",
   "Google AI Fundamentals",
+  "Generative AI for Everyone",
+  "Digital Marketing: Customer Engagement Strategy",
+  "Digital Marketing: Platforms, Data and Technologies",
   "Marketing in a Digital World",
 ];
