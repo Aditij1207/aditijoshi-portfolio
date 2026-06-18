@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { BadgeIcon, ExternalIcon, GithubIcon, LinkedinIcon, MailIcon, PhoneIcon, PinIcon } from "@/components/icons";
-import { certificates, education, experiences, navItems, patent, profile, projects, research, skillGroups } from "@/lib/portfolio";
+import { certificates, education, experiences, featuredAchievements, leadershipActivities, navItems, patent, profile, projects, research, skillGroups } from "@/lib/portfolio";
 
 type SectionKickerProps = {
   label: string;
@@ -105,7 +105,7 @@ function About() {
             </div>
             <p className="text-lg font-medium text-[#696a89]">{education.date}</p>
           </div>
-          <div className="mt-10 grid gap-8 sm:grid-cols-1">
+          <div className="mt-10 grid gap-8 sm:grid-cols-3">
             {education.stats.map((stat) => (
               <div key={stat.label}>
                 <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#696a89]">{stat.label}</p>
@@ -131,6 +131,42 @@ function About() {
             ))}
           </div>
         </div>
+      </div>
+    </SectionShell>
+  );
+}
+
+function FeaturedAchievements() {
+  return (
+    <SectionShell id="achievements" kicker="Featured Achievements" icon="✦" title="Credibility snapshot">
+      <div className="glass-card warm-card rounded-[28px] p-7 ring-2 ring-violet-200 sm:p-10 lg:p-12">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {featuredAchievements.map((achievement) => (
+            <div key={achievement} className="rounded-3xl border border-[#ded8ec] bg-white/70 p-5 text-lg font-bold leading-relaxed text-[#151426] shadow-sm shadow-purple-950/5">
+              <span className="mr-3 text-violet-600">✣</span>{achievement}
+            </div>
+          ))}
+        </div>
+      </div>
+    </SectionShell>
+  );
+}
+
+function Leadership() {
+  return (
+    <SectionShell id="leadership" kicker="Leadership & Activities" icon="✧" title="Campus leadership and impact">
+      <div className="grid gap-8 lg:grid-cols-3">
+        {leadershipActivities.map((activity) => (
+          <article key={activity.title} className="glass-card rounded-[26px] p-7 sm:p-9">
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-violet-700">{activity.role}</p>
+            <h3 className="mt-4 text-2xl font-bold text-[#151426]">{activity.title}</h3>
+            <ul className="mt-7 space-y-4 text-lg font-medium leading-relaxed text-[#696a89]">
+              {activity.bullets.map((bullet) => (
+                <li key={bullet} className="flex gap-4"><span className="text-violet-600">·</span><span>{bullet}</span></li>
+              ))}
+            </ul>
+          </article>
+        ))}
       </div>
     </SectionShell>
   );
@@ -208,6 +244,10 @@ function Projects() {
           </div>
           <p className="mt-8 text-xl font-medium text-[#696a89]">{featured.description}</p>
           {featured.status && <span className="mt-8 inline-flex rounded-full bg-[#f2defc] px-4 py-2 text-sm font-semibold">✣ {featured.status}</span>}
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            {featured.href && <a href={featured.href} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-[#ded8ec] bg-white/80 px-5 py-3 text-base font-bold text-[#171628] transition hover:-translate-y-0.5 hover:border-violet-300"><GithubIcon className="h-5 w-5" />GitHub</a>}
+            {featured.demo && <a href={featured.demo} target="_blank" rel="noreferrer" className="gradient-button inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-base font-bold text-white shadow-xl shadow-rose-900/15 transition hover:-translate-y-0.5"><ExternalIcon className="h-5 w-5" />Live Demo</a>}
+          </div>
         </article>
       )}
       <div className="grid gap-8 md:grid-cols-2">
@@ -267,6 +307,7 @@ function Contact() {
         <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
           <a href={profile.github} target="_blank" rel="noreferrer" className="gradient-button inline-flex items-center justify-center gap-3 rounded-full px-8 py-4 text-lg font-bold text-white shadow-xl shadow-rose-900/15"><GithubIcon className="h-5 w-5" />GitHub</a>
           <a href={profile.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-3 rounded-full bg-[#0177c9] px-8 py-4 text-lg font-bold text-white shadow-xl shadow-blue-900/15"><LinkedinIcon className="h-5 w-5" />LinkedIn</a>
+          <a href={profile.portfolio} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-3 rounded-full border border-[#ded8ec] bg-white/80 px-8 py-4 text-lg font-bold text-[#171628] shadow-xl shadow-purple-950/5"><ExternalIcon className="h-5 w-5" />Portfolio</a>
         </div>
       </div>
     </SectionShell>
@@ -291,7 +332,9 @@ export default function PortfolioPage() {
       <main>
         <Hero />
         <About />
+        <FeaturedAchievements />
         <Experience />
+        <Leadership />
         <Research />
         <Projects />
         <Patent />

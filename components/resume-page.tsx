@@ -1,11 +1,7 @@
 import type { ReactNode } from "react";
-import { certificates, education, experiences, patent, profile, projects, research, skillGroups } from "@/lib/portfolio";
+import { certificates, education, experiences, leadershipActivities, patent, profile, projects, research, skillGroups } from "@/lib/portfolio";
 
 const coursework = ["Data Structures & Algorithms", "OOP", "Database Management", "Cryptography", "Computer Networks", "AI Retrieval Systems"];
-const leadership = [
-  "Selected for technical internship experiences spanning AI product search, data observability, and backend prototyping.",
-  "Collaborates on privacy-preserving research focused on contextual identity disclosure and multi-agent systems.",
-];
 
 function ResumeSection({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -40,6 +36,7 @@ export default function ResumePage() {
             <span>✉ {profile.email}</span>
             <span>⌁ {profile.linkedin.replace("https://www.", "")}</span>
             <span>⌘ {profile.github.replace("https://", "")}</span>
+            <span>◈ {profile.portfolio.replace("https://", "")}</span>
           </div>
         </header>
 
@@ -137,7 +134,7 @@ export default function ResumePage() {
             <strong>Leadership</strong>
             <strong>2025 – Present</strong>
           </div>
-          <BulletList items={leadership} />
+          <BulletList items={leadershipActivities.flatMap((activity) => activity.bullets.map((bullet) => `${activity.title} — ${bullet}`))} />
         </ResumeSection>
       </article>
     </main>
